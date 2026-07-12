@@ -8,14 +8,11 @@
         * { box-sizing: border-box; transition: 0.3s; }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background-color: #f8f9fa; }
         
-        /* Modern Header */
         header { background: #2874f0; color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .search-bar { width: 50%; padding: 10px; border-radius: 4px; border: none; }
         
-        /* Hero Section */
         .hero { background: #ad1457; color: white; padding: 50px 5%; text-align: center; }
         
-        /* Product Grid */
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; padding: 40px 5%; }
         .card { background: white; padding: 20px; border-radius: 12px; text-align: center; border: 1px solid #eee; }
         .card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
@@ -39,21 +36,32 @@
     </div>
 
     <div class="product-grid">
-        <!-- Item 1 -->
+        <!-- New Item -->
+        <div class="card">
+            <!-- Ensure this filename matches the image in your folder exactly -->
+            <img src="WhatsApp Image 2026-07-07 at 17.15.57 (1).jpeg" alt="Party Wear Bangle Set">
+            <h3>Exclusive Party Set</h3>
+            <p class="price">₹799</p>
+            <button class="buy-btn" onclick="addToCart('Exclusive Party Set')">Add to Cart</button>
+        </div>
+        
+        <!-- Original Item 1 -->
         <div class="card">
             <img src="https://images.unsplash.com/photo-1617038237270-43f1406e23b2?w=500" alt="Party Wear">
             <h3>Party Wear Collection</h3>
             <p class="price">₹499</p>
             <button class="buy-btn" onclick="addToCart('Party Wear')">Add to Cart</button>
         </div>
-        <!-- Item 2 -->
+        
+        <!-- Original Item 2 -->
         <div class="card">
             <img src="https://images.unsplash.com/photo-1599643478518-a854e5da4700?w=500" alt="Daily Wear">
             <h3>Daily Wear Set</h3>
             <p class="price">₹199</p>
             <button class="buy-btn" onclick="addToCart('Daily Wear')">Add to Cart</button>
         </div>
-        <!-- Item 3 -->
+        
+        <!-- Original Item 3 -->
         <div class="card">
             <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500" alt="Bridal">
             <h3>Royal Bridal Set</h3>
