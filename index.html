@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiba Unique Bangles and Cosmetics | Luxury Online Boutique</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Premium Luxury Theme Styling */
+        :root {
+            --primary-color: #800020; 
+            --accent-color: #d4af37; 
+            --dark-text: #1a1a1a;
+            --light-bg: #fdfbfb;
+            --white: #ffffff;
+            --success: #27ae60;
+            --discount: #e74c3c;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, .p-title { font-family: 'Playfair Display', serif; }
+
+        /* Navigation */
+        header {
+            background-color: var(--white);
+            color: var(--dark-text);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        .logo h1 { margin: 0; font-size: 2.2em; letter-spacing: 2px; cursor: pointer; color: var(--primary-color); text-transform: uppercase; }
+        
+        .search-bar { flex: 1; max-width: 450px; margin: 0 30px; display: flex; border: 1px solid #e0e0e0; border-radius: 30px; overflow: hidden; background: var(--light-bg); }
+        .search-bar input { width: 100%; padding: 12px 20px; border: none; outline: none; background: transparent; font-family: 'Poppins', sans-serif; }
+        .search-bar button { padding: 10px 25px; background-color: var(--primary-color); color: var(--white); border: none; cursor: pointer; font-weight: 600; letter-spacing: 1px; transition: background 0.3s; }
+        .search-bar button:hover { background-color: var(--accent-color); }
+
+        .nav-icons { display: flex; gap: 25px; align-items: center; }
+        .nav-icons span { cursor: pointer; font-weight: 600; font-size: 1.1em; position: relative; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
+        .nav-icons span:hover { color: var(--accent-color); }
+        
+        .badge-icon { background-color: var(--accent-color); color: var(--white); border-radius: 50%; padding: 2px 8px; font-size: 0.8em; position: absolute; top: -12px; right: -18px; border: 2px solid var(--white); }
+        .wishlist-badge { background-color: var(--primary-color); }
+
+        .hamburger { display: none; font-size: 1.8em; cursor: pointer; color: var(--primary-color); }
+
+        /* Rotating Hero Banner */
+        .hero-banner {
+            position: relative;
+            background-image: url('https://placehold.co/1920x600/2d3436/ffffff?text=Luxury+Bangles+&+Cosmetics');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            text-align: center;
+            transition: background-image 1s ease-in-out; 
+        }
+        .hero-banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.55); }
+        .hero-content { position: relative; z-index: 1; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); max-width: 700px; margin: 0 auto; padding: 40px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.2); transition: opacity 0.5s ease-in-out; }
+        .hero-content h2 { font-size: 3.5em; color: var(--white); margin: 0 0 15px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .hero-content p { font-size: 1.2em; color: #f1f2f6; margin: 0 0 25px 0; font-weight: 300; }
+        .hero-btn { background-color: var(--accent-color); color: var(--white); padding: 15px 35px; border: none; border-radius: 30px; font-size: 1.1em; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; }
+        .hero-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4); }
+
+        /* Flash Sale Bar */
+        .flash-sale-bar { background-color: var(--primary-color); color: var(--white); text-align: center; padding: 12px; font-weight: 600; letter-spacing: 1px; margin-bottom: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .flash-sale-bar span { color: var(--accent-color); font-size: 1.2em; margin-left: 10px; font-variant-numeric: tabular-nums; }
+
+        /* Store Layout */
+        .store-layout { max-width: 1200px; margin: 0 auto 60px auto; padding: 0 20px; display: flex; gap: 40px; }
+        .sidebar { flex: 0 0 260px; background: var(--white); padding: 30px 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); height: fit-content; }
+        .sidebar h3 { color: var(--primary-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 12px; margin-top: 0; font-size: 1.5em; }
+        .filter-group { margin-bottom: 25px; }
+        .filter-group h4 { margin-bottom: 15px; color: var(--dark-text); font-weight: 600; text-transform: uppercase; font-size: 0.9em; letter-spacing: 1px; }
+        .filter-group label { display: block; margin-bottom: 10px; cursor: pointer; color: #555; transition: color 0.2s; }
+        .filter-group label:hover { color: var(--primary-color); }
+        .filter-group input { accent-color: var(--primary-color); margin-right: 10px; }
+
+        .product-grid { flex: 1; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+
+        /* Product Cards */
+        .product-card { position: relative; background: var(--white); border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.04); padding: 20px; text-align: center; transition: all 0.4s ease; cursor: pointer; border: 1px solid transparent; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(128, 0, 32, 0.15); border-color: rgba(212, 175, 55, 0.3); }
+        .wishlist-btn { position: absolute; top: 15px; right: 15px; font-size: 1.6em; color: #ccc; z-index: 10; transition: color 0.3s, transform 0.2s; cursor: pointer; }
+        .wishlist-btn:hover { transform: scale(1.2); }
+        .wishlist-btn.active { color: var(--primary-color); }
+        .product-img-wrapper { width: 100%; height: 250px; border-radius: 10px; overflow: hidden; margin-bottom: 15px; background: #f8f9fa; flex-shrink: 0; }
+        .product-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .product-card:hover img { transform: scale(1.1); }
+        .stars { color: var(--accent-color); font-size: 1em; margin-bottom: 10px; }
+        .stars span { color: #888; font-size: 0.8em; font-family: 'Poppins', sans-serif; }
+        .product-card h4 { color: var(--dark-text); margin: 0 0 5px 0; font-size: 1.3em; }
+        .price { font-size: 1.5em; font-weight: 600; color: var(--primary-color); margin-bottom: 20px; }
+        .price-container { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 20px; }
+        .original-price { font-size: 1em; color: #999; text-decoration: line-through; }
+        .price-discounted { font-size: 1.5em; font-weight: 600; color: var(--primary-color); margin-bottom: 0; }
+        .discount-badge { background-color: var(--discount); color: white; padding: 3px 6px; border-radius: 4px; font-size: 0.75em; font-weight: bold; }
+        .btn { background-color: var(--white); color: var(--primary-color); border: 2px solid var(--primary-color); padding: 12px 25px; cursor: pointer; border-radius: 30px; font-weight: 600; width: 100%; transition: all 0.3s; text-transform: uppercase; letter-spacing: 1px; font-family: 'Poppins', sans-serif; margin-top: auto; }
+        .btn:hover { background-color: var(--primary-color); color: var(--white); }
+
+        /* Views */
+        #main-view, #product-view, #cart-view, #wishlist-view { animation: fadeIn 0.4s ease-out; }
+        #product-view, #cart-view, #wishlist-view { display: none; max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Product Detail */
+        .back-btn { background: none; border: none; color: var(--primary-color); font-size: 1.1em; cursor: pointer; font-weight: 600; margin-bottom: 30px; display: inline-flex; align-items: center; gap: 8px; font-family: 'Poppins', sans-serif; }
+        .detail-wrapper { display: flex; flex-wrap: wrap; gap: 50px; background: var(--white); padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+        .gallery-container { flex: 1.2; min-width: 300px; display: flex; flex-direction: column; gap: 20px; }
+        .main-image-box { width: 100%; height: 500px; border-radius: 15px; overflow: hidden; background-color: #f8f9fa; }
+        .main-image-box img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.4s ease; }
+        .thumbnail-row { display: flex; gap: 15px; justify-content: flex-start; flex-wrap: wrap; }
+        .thumbnail { height: 90px; border-radius: 10px; cursor: pointer; border: 2px solid transparent; overflow: hidden; transition: all 0.3s; flex-grow: 1; max-width: 23%; }
+        .thumbnail:hover { transform: translateY(-3px); }
+        .thumbnail.active { border-color: var(--accent-color); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); }
+        .thumbnail img { width: 100%; height: 100%; object-fit: cover; }
+        .detail-info { flex: 1; min-width: 300px; }
+        .detail-info h2 { color: var(--primary-color); font-size: 2.8em; margin-bottom: 10px; }
+        .detail-info .price { font-size: 2.2em; margin-bottom: 20px; }
+        .detail-info p { color: #555; line-height: 1.8; font-size: 1.1em; margin-bottom: 30px; }
+        .options-group { margin: 25px 0; }
+        .options-group label { display: block; font-weight: 600; margin-bottom: 10px; text-transform: uppercase; font-size: 0.9em; letter-spacing: 1px; }
+        .options-group select, .options-group input { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1em; font-family: 'Poppins', sans-serif; outline: none; transition: border-color 0.3s; }
+        .options-group select:focus, .options-group input:focus { border-color: var(--accent-color); }
+        .btn-large { background-color: var(--primary-color); color: var(--white); border: none; padding: 18px 30px; cursor: pointer; border-radius: 30px; font-weight: 600; width: 100%; font-size: 1.2em; text-transform: uppercase; letter-spacing: 2px; transition: background 0.3s; font-family: 'Poppins', sans-serif; }
+        .btn-large:hover { background-color: var(--dark-text); }
+
+        /* Cart & Wishlist View Styles */
+        .cart-container { background: var(--white); padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+        .cart-container h2 { font-size: 2.5em; border-bottom: 2px solid #eee; padding-bottom: 20px; margin-bottom: 30px; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f1f2f6; padding: 20px 0; }
+        .cart-item-details h4 { margin: 0 0 8px 0; font-size: 1.3em; color: var(--dark-text); }
+        .cart-item-price { font-weight: 600; font-size: 1.4em; color: var(--primary-color); }
+        .cart-total-section { margin-top: 40px; text-align: right; border-top: 2px solid #eee; padding-top: 30px; }
+        .cart-total-price { font-size: 2.5em; font-weight: 700; color: var(--primary-color); margin-bottom: 25px; }
+
+        /* Toast Notifications Container */
+        #toast-container { position: fixed; bottom: 30px; left: 30px; z-index: 9999; display: flex; flex-direction: column; gap: 10px; }
+        .toast { background-color: var(--dark-text); color: var(--white); padding: 15px 25px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); font-weight: 600; border-left: 5px solid var(--accent-color); opacity: 0; transform: translateX(-20px); transition: opacity 0.3s, transform 0.3s; display: flex; align-items: center; gap: 10px; }
+        .toast.show { opacity: 1; transform: translateX(0); }
+
+        /* Live Chat Widget */
+        .chat-widget { position: fixed; bottom: 30px; right: 30px; background-color: var(--primary-color); color: var(--white); width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8em; box-shadow: 0 8px 20px rgba(128,0,32,0.4); cursor: pointer; z-index: 9998; transition: transform 0.3s; }
+        .chat-widget:hover { transform: scale(1.1); background-color: var(--accent-color); }
+
+        /* Footer */
+        footer { background-color: var(--dark-text); color: var(--white); padding: 70px 20px 30px; margin-top: 80px; font-family: 'Poppins', sans-serif; }
+        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 50px; }
+        .footer-col h3 { color: var(--accent-color); margin-top: 0; font-size: 1.8em; letter-spacing: 1px; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col ul li { margin-bottom: 15px; }
+        .footer-col ul li a { color: #aaa; text-decoration: none; transition: color 0.3s; }
+        .footer-col ul li a:hover { color: var(--white); }
+        .trust-badges { display: flex; gap: 15px; margin-top: 25px; }
+        .badge { background: rgba(255,255,255,0.05); color: var(--white); padding: 8px 15px; border-radius: 5px; font-size: 0.85em; font-weight: 600; border: 1px solid rgba(255,255,255,0.1); }
+        .footer-bottom { text-align: center; padding-top: 30px; color: #777; font-size: 0.9em; }
+
+        @media (max-width: 768px) {
+            .store-layout { flex-direction: column; }
+            .search-bar, .nav-icons { display: none; }
+            .hamburger { display: block; }
+            .hero-content h2 { font-size: 2.5em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo" onclick="goHome()">
+                <h1>Hiba Unique Bangles</h1>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search premium jewelry, cosmetics..." onkeyup="filterProducts()">
+                <button onclick="filterProducts()">Search</button>
+            </div>
+
+            <!-- Organized Wishlist & Cart -->
+            <div class="nav-icons">
+                <span onclick="openWishlist()">♡ Wishlist <span class="badge-icon wishlist-badge" id="wishlist-count">0</span></span>
+                <span onclick="openCart()">🛒 Cart <span class="badge-icon" id="cart-count">0</span></span>
+            </div>
+
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" style="display: none; padding: 20px; background: var(--primary-color); text-align: center; gap: 20px; flex-direction: column;">
+            <div style="font-weight: 600; color: white; cursor: pointer; text-transform: uppercase;" onclick="openWishlist()">♡ Wishlist (<span id="mobile-wishlist-count">0</span>)</div>
+            <div style="font-weight: 600; color: white; cursor: pointer; text-transform: uppercase;" onclick="openCart()">🛒 View Cart (<span id="mobile-cart-count">0</span>)</div>
+        </div>
+    </header>
+
+    <!-- 1. MAIN STOREFRONT VIEW -->
+    <div id="main-view">
+        <div class="hero-banner" id="heroBanner">
+            <div class="hero-content" id="heroContent">
+                <h2 id="heroTitle">Elegance & Beauty,<br>Curated For You</h2>
+                <p id="heroDesc">Discover the finest collection of traditional luxury jewelry and premium cosmetics online.</p>
+                <button class="hero-btn" onclick="document.getElementById('productGrid').scrollIntoView({behavior: 'smooth'})">Shop The Collection</button>
+            </div>
+        </div>
+
+        <div class="flash-sale-bar">
+            ⚡ EXCLUSIVE SITEWIDE SALE ENDS IN: <span id="countdown">04h 59m 59s</span>
+        </div>
+
+        <div class="store-layout">
+            <aside class="sidebar">
+                <h3>Refine Selection</h3>
+                <div class="filter-group">
+                    <h4>Categories</h4>
+                    <label><input type="checkbox" onchange="filterProducts()" value="Bangles" class="category-filter" checked> Luxury Bangles</label>
+                    <label><input type="checkbox" onchange="filterProducts()" value="Cosmetics" class="category-filter" checked> Premium Cosmetics</label>
+                </div>
+            </aside>
+
+            <!-- Dynamic Product Grid -->
+            <main class="product-grid" id="productGrid">
+                <!-- Products will be injected here via JavaScript -->
+            </main>
+        </div>
+    </div>
+
+    <!-- 2. PRODUCT DETAIL VIEW -->
+    <div id="product-view">
+        <button class="back-btn" onclick="goHome()"><span>←</span> Return to Collection</button>
+        <div class="detail-wrapper">
+            
+            <div class="gallery-container">
+                <div class="main-image-box">
+                    <img id="main-detail-img" src="" alt="Main Product Image">
+                </div>
+                <div class="thumbnail-row" id="thumbnail-container"></div>
+            </div>
+
+            <div class="detail-info">
+                <h2 id="detail-title">Product Title</h2>
+                <div class="stars" style="font-size: 1.2em;" id="detail-rating">★★★★★ <span style="font-size: 0.9em; text-decoration: underline; cursor: pointer;">Read Reviews</span></div>
+                
+                <div class="price" id="detail-price-display">₹0</div>
+                
+                <p id="detail-desc">Full description.</p>
+                <input type="hidden" id="detail-raw-price" value="0">
+
+                <div class="options-group" id="size-group">
+                    <label>Select Size (Bangles):</label>
+                    <select id="size"><option>2.2</option><option>2.4</option><option>2.6</option><option>2.8</option></select>
+                </div>
+
+                <div class="options-group">
+                    <label>Select Quantity:</label>
+                    <input type="number" id="qty" value="1" min="1" max="20">
+                </div>
+
+                <button class="btn-large" onclick="addToCart()">Add to Shopping Bag</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. CART VIEW -->
+    <div id="cart-view">
+        <button class="back-btn" onclick="goHome()"><span>←</span> Continue Shopping</button>
+        <div class="cart-container">
+            <h2 style="color: var(--primary-color);">Your Shopping Bag</h2>
+            <div id="cart-items-container"></div>
+            <div class="cart-total-section">
+                <div>Estimated Total:</div>
+                <div class="cart-total-price" id="cart-total">₹0</div>
+                <button class="btn-large" style="width: auto; padding: 20px 40px;" onclick="processCheckout()">Proceed to Secure Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. NEW WISHLIST VIEW -->
+    <div id="wishlist-view">
+        <button class="back-btn" onclick="goHome()"><span>←</span> Continue Shopping</button>
+        <div class="cart-container">
+            <h2 style="color: var(--primary-color);">Your Wishlist</h2>
+            <div id="wishlist-grid" class="product-grid" style="margin-top: 30px;">
+                <!-- Wishlisted items will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+    <div class="chat-widget" onclick="showToast('Connecting to Hiba HQ Support in Vadodara...')">💬</div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Hiba Unique Bangles</h3>
+                <p style="color: #aaa; line-height: 1.8; margin-top: 20px;">Elegance and Beauty, Curated for You. Redefining traditional luxury online.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Boutique Services</h3>
+                <ul style="margin-top: 20px;">
+                    <li><a href="#">Complimentary Shipping</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Jewelry Care Guide</a></li>
+                    <li><a href="#">Contact the Atelier</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Secure Shopping</h3>
+                <div class="trust-badges">
+                    <div class="badge">🔒 SSL Secured</div>
+                    <div class="badge">💳 UPI & Cards</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 Hiba Unique Bangles and Cosmetics. Masterfully engineered.</div>
+    </footer>
+
+    <script>
+        // ==========================================
+        // PRODUCT DATABASE 
+        // ==========================================
+        const productDatabase = [
+            {
+                id: 1, title: "Emerald Bridal Chura Set", category: "Bangles", type: "bangle", price: 750, originalPrice: 1499, discount: "50% OFF", rating: "★★★★★", reviews: "128 Reviews",
+                desc: "Intricately designed heavy bangles for special occasions. Features brilliant 22k gold plating and authentic kundan stones imported directly for our exclusive bridal collection.",
+                thumbnail: "images/Emerald Bridal Chura Set/emerald-1.jpg",
+                images: ['images/Emerald Bridal Chura Set/emerald-1.jpg', 'images/Emerald Bridal Chura Set/emerald-2.jpg', 'images/Emerald Bridal Chura Set/emerald-3.jpg', 'images/Emerald Bridal Chura Set/emerald-4.jpg']
+            },
+            {
+                id: 2, title: "Mint Green Glitter", category: "Bangles", type: "bangle", price: 150, originalPrice: 350, discount: "55% OFF", rating: "★★★★☆", reviews: "84 Reviews",
+                desc: "Beautiful mint green glitter bangles crafted to catch the light perfectly with every movement of your wrist.",
+                thumbnail: "images/Mint Green Glitter/mint-1.jpg",
+                images: ['images/Mint Green Glitter/mint-1.jpg', 'images/Mint Green Glitter/mint-2.jpg', 'images/Mint Green Glitter/mint-3.jpg']
+            },
+            {
+                id: 3, title: "Golden Red Unique Bridal Set", category: "Bangles", type: "bangle", price: 750, originalPrice: 1499, discount: "50% OFF", rating: "★★★★★", reviews: "215 Reviews",
+                desc: "A breathtaking golden and red bridal stack, featuring intricate ghungroo details and shimmering stonework for your special day.",
+                thumbnail: "images/Golden/Red-Golden-1.jpeg",
+                images: ['images/Golden/Red-Golden-1.jpeg', 'images/Golden/Red-Golden-2.jpeg', 'images/Golden/Red-Golden-3.jpeg']
+            },
+            {
+                id: 4, title: "Red Unique Kade Set (4 Pieces)", category: "Bangles", type: "bangle", price: 70, originalPrice: 250, discount: "70% OFF", rating: "★★★★★", reviews: "215 Reviews",
+                desc: "A breathtaking golden and red bridal stack, featuring intricate ghungroo details and shimmering stonework for your special day.",
+                thumbnail: "images/Red/Red-1.jpeg",
+                images: ['images/Red/Red-1.jpeg', 'images/Red/Red-2.jpeg', 'images/Red/Red-3.jpeg']
+            },
+            {
+                id: 5, title: "Midnight Black Velvet Chudi", category: "Bangles", type: "bangle", price: 400, rating: "★★★★☆", reviews: "112 Reviews",
+                desc: "Soft velvet texture on a sturdy base, these midnight black bangles bring a modern edge to traditional wear.",
+                thumbnail: "https://placehold.co/400x500/1a1a1a/ffffff?text=Midnight+Black+Velvet",
+                images: ['https://placehold.co/600x800/1a1a1a/ffffff?text=Midnight+Black+Velvet', 'https://placehold.co/600x800/333333/ffffff?text=Stacked+Velvet']
+            },
+            {
+                id: 6, title: "Ruby Red Bridal Kada", category: "Bangles", type: "bangle", price: 850, rating: "★★★★★", reviews: "204 Reviews",
+                desc: "A thick, statement Kada adorned with deep ruby red stones. An essential addition to any bridal collection.",
+                thumbnail: "https://placehold.co/400x500/800020/ffffff?text=Ruby+Red+Kada",
+                images: ['https://placehold.co/600x800/800020/ffffff?text=Ruby+Red+Kada', 'https://placehold.co/600x800/a52a2a/ffffff?text=Ruby+Stone+Detail']
+            },
+            {
+                id: 7, title: "Pearl & Gold Polki Bangles", category: "Bangles", type: "bangle", price: 1100, rating: "★★★★★", reviews: "67 Reviews",
+                desc: "Delicate freshwater pearls paired with traditional Polki craftsmanship for a truly royal look.",
+                thumbnail: "https://placehold.co/400x500/fdfbfb/000000?text=Pearl+Polki+Bangles",
+                images: ['https://placehold.co/600x800/fdfbfb/000000?text=Pearl+Polki+Bangles', 'https://placehold.co/600x800/e0e0e0/000000?text=Pearl+Detailing']
+            },
+            {
+                id: 8, title: "Royal Blue Crystal Bangles", category: "Bangles", type: "bangle", price: 550, rating: "★★★★☆", reviews: "150 Reviews",
+                desc: "Shimmering royal blue crystals that catch the light from every angle. Ideal for festive evening wear.",
+                thumbnail: "https://placehold.co/400x500/000080/ffffff?text=Royal+Blue+Crystal",
+                images: ['https://placehold.co/600x800/000080/ffffff?text=Royal+Blue+Crystal', 'https://placehold.co/600x800/0000cd/ffffff?text=Crystal+Shimmer']
+            },
+            {
+                id: 9, title: "Antique Oxidized Silver Set", category: "Bangles", type: "bangle", price: 750, rating: "★★★★★", reviews: "310 Reviews",
+                desc: "A gorgeous bohemian oxidized silver set featuring intricate tribal motifs and tiny ghungroos.",
+                thumbnail: "https://placehold.co/400x500/7f8c8d/ffffff?text=Oxidized+Silver+Set",
+                images: ['https://placehold.co/600x800/7f8c8d/ffffff?text=Oxidized+Silver+Set', 'https://placehold.co/600x800/95a5a6/ffffff?text=Tribal+Motif+Detail']
+            },
+            {
+                id: 10, title: "Yellow Gold Matte Finish Kadas", category: "Bangles", type: "bangle", price: 900, rating: "★★★★☆", reviews: "89 Reviews",
+                desc: "Thick golden kadas with a contemporary matte finish, blending traditional shapes with modern textures.",
+                thumbnail: "https://placehold.co/400x500/f1c40f/ffffff?text=Matte+Gold+Kadas",
+                images: ['https://placehold.co/600x800/f1c40f/ffffff?text=Matte+Gold+Kadas', 'https://placehold.co/600x800/f39c12/ffffff?text=Matte+Texture']
+            },
+            {
+                id: 11, title: "Peach Thread Work Bangles", category: "Bangles", type: "bangle", price: 300, rating: "★★★★★", reviews: "145 Reviews",
+                desc: "Hand-wrapped silk thread bangles in a soft peach hue, decorated with tiny gold beads.",
+                thumbnail: "https://placehold.co/400x500/ffdab9/000000?text=Peach+Thread+Work",
+                images: ['https://placehold.co/600x800/ffdab9/000000?text=Peach+Thread+Work', 'https://placehold.co/600x800/ffb6c1/000000?text=Silk+Thread+Detail']
+            },
+            {
+                id: 12, title: "Magenta Silk Bangle Set", category: "Bangles", type: "bangle", price: 450, rating: "★★★★☆", reviews: "72 Reviews",
+                desc: "A bold pop of magenta silk thread, perfectly coordinated to match vibrant traditional outfits.",
+                thumbnail: "https://placehold.co/400x500/8b008b/ffffff?text=Magenta+Silk+Set",
+                images: ['https://placehold.co/600x800/8b008b/ffffff?text=Magenta+Silk+Set', 'https://placehold.co/600x800/9932cc/ffffff?text=Magenta+Bangles']
+            },
+            {
+                id: 13, title: "White Stone Studded Chura", category: "Bangles", type: "bangle", price: 1350, rating: "★★★★★", reviews: "198 Reviews",
+                desc: "A stunning all-white bridal chura set entirely encrusted with sparkling American diamonds.",
+                thumbnail: "https://placehold.co/400x500/f5f5f5/000000?text=White+Stone+Chura",
+                images: ['https://placehold.co/600x800/f5f5f5/000000?text=White+Stone+Chura', 'https://placehold.co/600x800/e8e8e8/000000?text=Diamond+Detailing']
+            }
+        ];
+
+        // ==========================================
+        // STATE MANAGEMENT
+        // ==========================================
+        let shoppingCart = [];
+        let wishlistedIds = []; 
+
+        // ==========================================
+        // DYNAMIC RENDERING ENGINE
+        // ==========================================
+        function createProductCardHTML(product) {
+            const isWishlisted = wishlistedIds.includes(product.id);
+            const heartIcon = isWishlisted ? '♥' : '♡';
+            const activeClass = isWishlisted ? 'active' : '';
+            
+            // Format price section for cards with and without discounts
+            let priceSectionHTML = `<div class="price">₹${product.price.toLocaleString('en-IN')}</div>`;
+            if (product.originalPrice) {
+                priceSectionHTML = `
+                    <div class="price-container">
+                        <span class="original-price">₹${product.originalPrice.toLocaleString('en-IN')}</span>
+                        <span class="price-discounted">₹${product.price.toLocaleString('en-IN')}</span>
+                        <span class="discount-badge">${product.discount}</span>
+                    </div>
+                `;
+            }
+
+            return `
+                <div class="product-card item" data-title="${product.title.toUpperCase()}" data-category="${product.category}" onclick="openProduct(${product.id})">
+                    <div class="wishlist-btn ${activeClass}" onclick="toggleWishlist(this, event, ${product.id})">${heartIcon}</div>
+                    <div class="product-img-wrapper">
+                        <img src="${product.thumbnail}" alt="${product.title}">
+                    </div>
+                    <div class="stars">${product.rating} <span>(${product.reviews})</span></div>
+                    <h4 class="p-title">${product.title}</h4>
+                    ${priceSectionHTML}
+                    <button class="btn">View Details</button>
+                </div>
+            `;
+        }
+
+        function renderStorefront() {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = ""; 
+            productDatabase.forEach(product => {
+                grid.innerHTML += createProductCardHTML(product);
+            });
+        }
+
+        // Initialize Store
+        renderStorefront();
+
+        // --- View Routing ---
+        function hideAllViews() {
+            document.getElementById('main-view').style.display = 'none';
+            document.getElementById('product-view').style.display = 'none';
+            document.getElementById('cart-view').style.display = 'none';
+            document.getElementById('wishlist-view').style.display = 'none';
+            
+            // Close mobile menu automatically when switching views
+            document.getElementById('mobile-menu').style.display = 'none'; 
+        }
+
+        function goHome() {
+            hideAllViews();
+            document.getElementById('main-view').style.display = 'block';
+            window.scrollTo(0, 0);
+            
+            renderStorefront(); 
+            filterProducts(); 
+        }
+
+        function openProduct(id) {
+            const product = productDatabase.find(p => p.id === id);
+            if (!product) return;
+
+            hideAllViews();
+            document.getElementById('product-view').style.display = 'block';
+
+            document.getElementById('detail-title').innerText = product.title;
+            
+            // Update the Detail View Price to reflect the discount if available
+            const detailPriceDisplay = document.getElementById('detail-price-display');
+            if (product.originalPrice) {
+                detailPriceDisplay.innerHTML = `<span style="text-decoration: line-through; color: #999; font-size: 0.6em; margin-right: 15px;">₹${product.originalPrice.toLocaleString('en-IN')}</span>₹${product.price.toLocaleString('en-IN')} <span style="background-color: var(--discount); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.5em; vertical-align: middle;">${product.discount}</span>`;
+            } else {
+                detailPriceDisplay.innerHTML = `₹${product.price.toLocaleString('en-IN')}`;
+            }
+            
+            document.getElementById('detail-raw-price').value = product.price;
+            document.getElementById('detail-desc').innerText = product.desc;
+            document.getElementById('detail-rating').innerHTML = `${product.rating} <span style="font-size: 0.9em; text-decoration: underline; cursor: pointer;">${product.reviews}</span>`;
+            document.getElementById('size-group').style.display = (product.type === 'bangle') ? 'block' : 'none';
+            document.getElementById('qty').value = 1; 
+            
+            const mainImg = document.getElementById('main-detail-img');
+            const thumbContainer = document.getElementById('thumbnail-container');
+            
+            mainImg.src = product.images[0]; 
+            thumbContainer.innerHTML = ''; 
+
+            const thumbWidth = Math.min(100 / product.images.length - 2, 23); 
+
+            product.images.forEach((imgUrl, index) => {
+                let thumbDiv = document.createElement('div');
+                thumbDiv.className = 'thumbnail' + (index === 0 ? ' active' : '');
+                thumbDiv.style.width = `${thumbWidth}%`;
+                thumbDiv.innerHTML = `<img src="${imgUrl}">`;
+                thumbDiv.onclick = function() {
+                    mainImg.style.opacity = 0.5;
+                    setTimeout(() => { mainImg.src = imgUrl; mainImg.style.opacity = 1; }, 150);
+                    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                };
+                thumbContainer.appendChild(thumbDiv);
+            });
+            window.scrollTo(0, 0);
+        }
+
+        // --- Store Interactions ---
+        function filterProducts() {
+            const searchInput = document.getElementById('searchInput').value.toUpperCase();
+            const activeCategories = Array.from(document.querySelectorAll('.category-filter:checked')).map(cb => cb.value);
+
+            document.querySelectorAll('#productGrid .item').forEach(item => {
+                const title = item.getAttribute('data-title');
+                const category = item.getAttribute('data-category');
+                
+                const matchesSearch = title.includes(searchInput);
+                const matchesCategory = activeCategories.includes(category);
+
+                item.style.display = (matchesSearch && matchesCategory) ? "" : "none";
+            });
+        }
+
+        // --- Cart Logic ---
+        function addToCart() {
+            const title = document.getElementById('detail-title').innerText;
+            const price = parseInt(document.getElementById('detail-raw-price').value);
+            const qty = parseInt(document.getElementById('qty').value);
+            let sizeText = document.getElementById('size-group').style.display === 'block' ? " | Size: " + document.getElementById('size').value : "";
+
+            // Check if item is already in cart to group quantities
+            const existingItem = shoppingCart.find(item => item.title === title && item.sizeText === sizeText);
+            
+            if (existingItem) {
+                existingItem.qty += qty;
+                existingItem.totalItemPrice = existingItem.qty * price;
+            } else {
+                shoppingCart.push({ title, price, qty, sizeText, totalItemPrice: price * qty });
+            }
+            
+            updateCartBadges();
+            showToast(`Added ${qty}x ${title} to your bag.`);
+        }
+
+        function updateCartBadges() {
+            let totalItems = shoppingCart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cart-count').innerText = totalItems;
+            document.getElementById('mobile-cart-count').innerText = totalItems;
+        }
+
+        function openCart() {
+            hideAllViews();
+            document.getElementById('cart-view').style.display = 'block';
+            
+            const container = document.getElementById('cart-items-container');
+            container.innerHTML = ""; 
+
+            if (shoppingCart.length === 0) {
+                container.innerHTML = "<p style='font-size: 1.2em; color: #777;'>Your shopping bag is currently empty.</p>";
+                document.getElementById('cart-total').innerText = '₹0';
+                return;
+            }
+
+            let grandTotal = 0;
+            shoppingCart.forEach(item => {
+                grandTotal += item.totalItemPrice;
+                container.innerHTML += `
+                    <div class="cart-item">
+                        <div class="cart-item-details">
+                            <h4>${item.title}</h4>
+                            <p style="color: #555;">Qty: ${item.qty} ${item.sizeText}</p>
+                        </div>
+                        <div class="cart-item-price">₹${item.totalItemPrice.toLocaleString('en-IN')}</div>
+                    </div>
+                `;
+            });
+            document.getElementById('cart-total').innerText = '₹' + grandTotal.toLocaleString('en-IN');
+            window.scrollTo(0, 0);
+        }
+
+        function processCheckout() {
+            if (shoppingCart.length === 0) {
+                showToast("Your shopping bag is empty, Master!");
+                return;
+            }
+
+            const whatsappNumber = "91XXXXXXXXXX"; 
+            let message = "Hello Hiba Unique Bangles! ✨ I would like to place an order:\n\n";
+            
+            shoppingCart.forEach(item => {
+                let sizeInfo = item.sizeText ? `(${item.sizeText.replace(" | ", "")})` : "";
+                message += `🛍️ ${item.qty}x ${item.title} ${sizeInfo} = ₹${item.totalItemPrice.toLocaleString('en-IN')}\n`;
+            });
+
+            const grandTotal = document.getElementById('cart-total').innerText;
+            message += `\n💰 *Total Amount: ${grandTotal}*\n\n`;
+            message += "Please let me know how I can pay!";
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            showToast("Routing your order to WhatsApp...");
+            
+            setTimeout(() => {
+                window.open(whatsappURL, '_blank');
+                // Empty the cart after successful routing
+                shoppingCart = []; 
+                updateCartBadges();
+                openCart();
+            }, 800);
+        }
+
+        // --- Fully Functional Wishlist Logic ---
+        function toggleWishlist(element, event, productId) {
+            event.stopPropagation(); 
+            
+            const index = wishlistedIds.indexOf(productId);
+            
+            if (index > -1) {
+                wishlistedIds.splice(index, 1);
+                element.classList.remove('active');
+                element.innerText = '♡';
+                showToast('Removed from Wishlist');
+            } else {
+                wishlistedIds.push(productId);
+                element.classList.add('active');
+                element.innerText = '♥';
+                showToast('Saved to your Wishlist!');
+            }
+            
+            document.getElementById('wishlist-count').innerText = wishlistedIds.length;
+            document.getElementById('mobile-wishlist-count').innerText = wishlistedIds.length;
+            
+            if(document.getElementById('wishlist-view').style.display === 'block') {
+                openWishlist();
+            }
+        }
+
+        function openWishlist() {
+            hideAllViews();
+            document.getElementById('wishlist-view').style.display = 'block';
+            
+            const grid = document.getElementById('wishlist-grid');
+            grid.innerHTML = "";
+
+            if (wishlistedIds.length === 0) {
+                grid.innerHTML = "<p style='font-size: 1.2em; color: #777; width: 100%;'>Your wishlist is currently empty. Click the heart icons on products to save them here!</p>";
+                window.scrollTo(0, 0);
+                return;
+            }
+
+            wishlistedIds.forEach(id => {
+                const product = productDatabase.find(p => p.id === id);
+                if (product) {
+                    grid.innerHTML += createProductCardHTML(product);
+                }
+            });
+            window.scrollTo(0, 0);
+        }
+
+
+        // --- UI Utilities ---
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `✓ ${message}`;
+            container.appendChild(toast);
+            setTimeout(() => toast.classList.add('show'), 10);
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'flex' : 'none';
+        }
+
+        // --- Flash Sale Countdown Timer ---
+        let timeRemaining = 5 * 3600 + 59 * 60 + 59; 
+        
+        const timerInterval = setInterval(() => {
+            if (timeRemaining <= 0) {
+                clearInterval(timerInterval);
+                document.getElementById('countdown').innerText = "SALE ENDED";
+                return;
+            }
+            timeRemaining--;
+            let h = Math.floor(timeRemaining / 3600);
+            let m = Math.floor((timeRemaining % 3600) / 60);
+            let s = timeRemaining % 60;
+            document.getElementById('countdown').innerText = 
+                `${h.toString().padStart(2, '0')}h ${m.toString().padStart(2, '0')}m ${s.toString().padStart(2, '0')}s`;
+        }, 1000);
+
+        // --- Hero Slider ---
+        const slides = [
+            { bg: "url('https://placehold.co/1920x600/2d3436/ffffff?text=Luxury+Bangles+&+Cosmetics')", title: "Elegance & Beauty,<br>Curated For You", desc: "Discover the finest collection of traditional luxury jewelry and premium cosmetics online." },
+            { bg: "url('https://placehold.co/1920x600/800020/ffffff?text=Bridal+Collection+2026')", title: "The 2026 Bridal Collection", desc: "Exquisite Kundan and 22k Gold-Plated sets crafted for your most unforgettable moments." },
+            { bg: "url('https://placehold.co/1920x600/4a235a/ffffff?text=Midnight+Velvet+Cosmetics')", title: "Midnight Velvet Lipsticks", desc: "Flawless, smudge-proof matte shades that last from dusk till dawn." }
+        ];
+        
+        let currentSlide = 0;
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            const banner = document.getElementById('heroBanner');
+            const content = document.getElementById('heroContent');
+            content.style.opacity = '0';
+            setTimeout(() => {
+                banner.style.backgroundImage = slides[currentSlide].bg;
+                document.getElementById('heroTitle').innerHTML = slides[currentSlide].title;
+                document.getElementById('heroDesc').innerHTML = slides[currentSlide].desc;
+                content.style.opacity = '1';
+            }, 500);
+        }, 5000);
+    </script>
+</body>
+</html>
