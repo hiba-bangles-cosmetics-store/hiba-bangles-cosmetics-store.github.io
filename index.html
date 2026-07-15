@@ -297,6 +297,25 @@
         </div>
     </div>
 
+    <!-- 5. PAYMENT MODAL -->
+    <div id="payment-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(5px);">
+        <div style="background: var(--white); padding: 40px; border-radius: 20px; max-width: 450px; width: 90%; text-align: center; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.2);">
+            <span style="position: absolute; top: 15px; right: 20px; font-size: 1.8em; cursor: pointer; color: #888; transition: color 0.3s;" onclick="closePaymentModal()" onmouseover="this.style.color='var(--primary-color)'" onmouseout="this.style.color='#888'">&times;</span>
+            
+            <h2 style="color: var(--primary-color); margin-top: 0; font-size: 2em; margin-bottom: 10px;">Payment Method</h2>
+            <p style="color: #666; margin-bottom: 30px; font-family: 'Poppins', sans-serif;">How would you like to pay for your order?</p>
+
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <button class="btn-large" style="font-size: 1.1em; padding: 18px; display: flex; align-items: center; justify-content: center; gap: 10px;" onclick="completeCheckout('UPI')">
+                    📱 Pay via UPI (GPay, Paytm, PhonePe)
+                </button>
+                <button class="btn-large" style="background-color: var(--dark-text); font-size: 1.1em; padding: 18px; display: flex; align-items: center; justify-content: center; gap: 10px;" onclick="completeCheckout('COD')">
+                    💵 Cash on Delivery (COD)
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div id="toast-container"></div>
     <div class="chat-widget" onclick="showToast('Connecting to Hiba HQ Support in Vadodara...')">💬</div>
 
@@ -333,33 +352,33 @@
         const productDatabase = [
             {
                 id: 1, title: "Emerald Bridal Chura Set", category: "Bangles", type: "bangle", price: 750, originalPrice: 1499, discount: "50% OFF", rating: "★★★★★", reviews: "128 Reviews",
-                desc: "Intricately designed heavy bangles for special occasions. Features brilliant 22k gold plating and authentic kundan stones imported directly for our exclusive bridal collection.",
+                desc: "An intricately crafted traditional piece, featuring micro-gold plating and subtle floral motifs. Perfect for festive gatherings and grand celebrations.",
                 thumbnail: "images/Emerald Bridal Chura Set/emerald-1.jpg",
                 images: ['images/Emerald Bridal Chura Set/emerald-1.jpg', 'images/Emerald Bridal Chura Set/emerald-2.jpg', 'images/Emerald Bridal Chura Set/emerald-3.jpg', 'images/Emerald Bridal Chura Set/emerald-4.jpg']
             },
             {
                 id: 2, title: "Mint Green Glitter", category: "Bangles", type: "bangle", price: 150, originalPrice: 350, discount: "55% OFF", rating: "★★★★☆", reviews: "84 Reviews",
-                desc: "Beautiful mint green glitter bangles crafted to catch the light perfectly with every movement of your wrist.",
+                desc: "A heavy statement bangle studded with premium uncut Kundan stones, designed to add a regal touch to your wedding or ethnic wardrobe.",
                 thumbnail: "images/Mint Green Glitter/mint-1.jpg",
                 images: ['images/Mint Green Glitter/mint-1.jpg', 'images/Mint Green Glitter/mint-2.jpg', 'images/Mint Green Glitter/mint-3.jpg']
             },
             {
                 id: 3, title: "Golden Red Unique Bridal Set", category: "Bangles", type: "bangle", price: 750, originalPrice: 1499, discount: "50% OFF", rating: "★★★★★", reviews: "215 Reviews",
-                desc: "A breathtaking golden and red bridal stack, featuring intricate ghungroo details and shimmering stonework for your special day.",
+                desc: "A versatile, bohemian-inspired silver bangle with detailed tribal engravings. Seamlessly transitions from everyday wear to fusion party outfits.",
                 thumbnail: "images/Golden/Red-Golden-1.jpeg",
                 images: ['images/Golden/Red-Golden-1.jpeg', 'images/Golden/Red-Golden-2.jpeg', 'images/Golden/Red-Golden-3.jpeg']
             },
             {
                 id: 4, title: "Red Unique Kade Set (4 Pieces)", category: "Bangles", type: "bangle", price: 70, originalPrice: 250, discount: "70% OFF", rating: "★★★★★", reviews: "215 Reviews",
-                desc: "A breathtaking golden and red bridal stack, featuring intricate ghungroo details and shimmering stonework for your special day.",
+                desc: "A sleek and modern design featuring a smooth rose gold finish with delicate faux-diamond accents for subtle, elegant evening glamour.",
                 thumbnail: "images/Red/Red-1.jpeg",
                 images: ['images/Red/Red-1.jpeg', 'images/Red/Red-2.jpeg', 'images/Red/Red-3.jpeg']
             },
             {
-                id: 5, title: "Midnight Black Velvet Chudi", category: "Bangles", type: "bangle", price: 400, rating: "★★★★☆", reviews: "112 Reviews",
-                desc: "Soft velvet texture on a sturdy base, these midnight black bangles bring a modern edge to traditional wear.",
-                thumbnail: "https://placehold.co/400x500/1a1a1a/ffffff?text=Midnight+Black+Velvet",
-                images: ['https://placehold.co/600x800/1a1a1a/ffffff?text=Midnight+Black+Velvet', 'https://placehold.co/600x800/333333/ffffff?text=Stacked+Velvet']
+                id: 5, title: "Kashmiri Green Glass Bangle", category: "Bangles", type: "bangle", price: 329, originalPrice: 730, discount: "55% OFF", rating: "★★★★☆", reviews: "112 Reviews",
+                desc: "Exquisite patterned Kashmiri green glass bangles adorned with charming Green colour Best for festive attire.",
+                thumbnail: "images/Bangles/1784043770488.png",
+                images: ['images/Bangles/1784043770488.png', 'images/Bangles/1784043885450.png', 'images/Bangles/1784125604852.png','images/Bangles/112.png']
             },
             {
                 id: 6, title: "Ruby Red Bridal Kada", category: "Bangles", type: "bangle", price: 850, rating: "★★★★★", reviews: "204 Reviews",
@@ -607,8 +626,18 @@
                 showToast("Your shopping bag is empty, Master!");
                 return;
             }
+            // Show the payment modal instead of directly opening WhatsApp
+            document.getElementById('payment-modal').style.display = 'flex';
+        }
 
-            const whatsappNumber = "91XXXXXXXXXX"; 
+        function closePaymentModal() {
+            document.getElementById('payment-modal').style.display = 'none';
+        }
+
+        function completeCheckout(paymentMethod) {
+            closePaymentModal(); // Hide modal
+
+            const whatsappNumber = "917698818288"; 
             let message = "Hello Hiba Unique Bangles! ✨ I would like to place an order:\n\n";
             
             shoppingCart.forEach(item => {
@@ -617,8 +646,16 @@
             });
 
             const grandTotal = document.getElementById('cart-total').innerText;
-            message += `\n💰 *Total Amount: ${grandTotal}*\n\n`;
-            message += "Please let me know how I can pay!";
+            message += `\n💰 *Total Amount: ${grandTotal}*\n`;
+            
+            // Add payment method to the WhatsApp message
+            if (paymentMethod === 'UPI') {
+                message += `💳 *Payment Method: UPI (GPay / Paytm / PhonePe)*\n\n`;
+                message += "Please share your UPI ID or QR Code so I can complete the payment.";
+            } else {
+                message += `💵 *Payment Method: Cash on Delivery (COD)*\n\n`;
+                message += "Please confirm my order for Cash on Delivery. Here is my delivery address: [I will provide my address here]";
+            }
 
             const encodedMessage = encodeURIComponent(message);
             const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
